@@ -1,0 +1,1873 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UPOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AcademicYears">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Activities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModuleId" Type="int" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="int" Nullable="false" />
+          <Property Name="TotalHours" Type="int" Nullable="false" />
+          <Property Name="EvalTypeId" Type="int" Nullable="false" />
+          <Property Name="RoomTypeId" Type="int" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Modified" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="GroupNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppLookups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LookupType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="NameEN" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AvailabilityPeriods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeriodName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActivePeriod" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DegreeTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DTCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DeptCode" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="EvalTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="LCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NameEN" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModuleCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="Specialization" Type="nvarchar" MaxLength="255" />
+          <Property Name="Coordinator" Type="int" Nullable="false" />
+          <Property Name="PreparedYearId" Type="int" Nullable="false" />
+          <Property Name="AcademicYearId" Type="int" Nullable="false" />
+          <Property Name="SemesterId" Type="int" Nullable="false" />
+          <Property Name="CourseTypeId" Type="int" Nullable="false" />
+          <Property Name="DegreeTypeId" Type="int" Nullable="false" />
+          <Property Name="StudyTypeId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="ECTS" Type="int" Nullable="false" />
+          <Property Name="IsFL" Type="bit" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1023" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="Modified" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModuleSize" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="CoordinatorDeptId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuleStatusSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoomTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Semesters">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Season" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StaffAvailabilities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="PeriodId" Type="int" Nullable="false" />
+          <Property Name="Mon08" Type="bit" Nullable="false" />
+          <Property Name="Mon09" Type="bit" Nullable="false" />
+          <Property Name="Mon10" Type="bit" Nullable="false" />
+          <Property Name="Mon11" Type="bit" Nullable="false" />
+          <Property Name="Mon12" Type="bit" Nullable="false" />
+          <Property Name="Mon13" Type="bit" Nullable="false" />
+          <Property Name="Mon14" Type="bit" Nullable="false" />
+          <Property Name="Mon15" Type="bit" Nullable="false" />
+          <Property Name="Mon16" Type="bit" Nullable="false" />
+          <Property Name="Mon17" Type="bit" Nullable="false" />
+          <Property Name="Mon18" Type="bit" Nullable="false" />
+          <Property Name="Mon19" Type="bit" Nullable="false" />
+          <Property Name="Mon20" Type="bit" Nullable="false" />
+          <Property Name="Tue08" Type="bit" Nullable="false" />
+          <Property Name="Tue09" Type="bit" Nullable="false" />
+          <Property Name="Tue10" Type="bit" Nullable="false" />
+          <Property Name="Tue11" Type="bit" Nullable="false" />
+          <Property Name="Tue12" Type="bit" Nullable="false" />
+          <Property Name="Tue13" Type="bit" Nullable="false" />
+          <Property Name="Tue14" Type="bit" Nullable="false" />
+          <Property Name="Tue15" Type="bit" Nullable="false" />
+          <Property Name="Tue16" Type="bit" Nullable="false" />
+          <Property Name="Tue17" Type="bit" Nullable="false" />
+          <Property Name="Tue18" Type="bit" Nullable="false" />
+          <Property Name="Tue19" Type="bit" Nullable="false" />
+          <Property Name="Tue20" Type="bit" Nullable="false" />
+          <Property Name="Wed08" Type="bit" Nullable="false" />
+          <Property Name="Wed09" Type="bit" Nullable="false" />
+          <Property Name="Wed10" Type="bit" Nullable="false" />
+          <Property Name="Wed11" Type="bit" Nullable="false" />
+          <Property Name="Wed12" Type="bit" Nullable="false" />
+          <Property Name="Wed13" Type="bit" Nullable="false" />
+          <Property Name="Wed14" Type="bit" Nullable="false" />
+          <Property Name="Wed15" Type="bit" Nullable="false" />
+          <Property Name="Wed16" Type="bit" Nullable="false" />
+          <Property Name="Wed17" Type="bit" Nullable="false" />
+          <Property Name="Wed18" Type="bit" Nullable="false" />
+          <Property Name="Wed19" Type="bit" Nullable="false" />
+          <Property Name="Wed20" Type="bit" Nullable="false" />
+          <Property Name="Thu08" Type="bit" Nullable="false" />
+          <Property Name="Thu09" Type="bit" Nullable="false" />
+          <Property Name="Thu10" Type="bit" Nullable="false" />
+          <Property Name="Thu11" Type="bit" Nullable="false" />
+          <Property Name="Thu12" Type="bit" Nullable="false" />
+          <Property Name="Thu13" Type="bit" Nullable="false" />
+          <Property Name="Thu14" Type="bit" Nullable="false" />
+          <Property Name="Thu15" Type="bit" Nullable="false" />
+          <Property Name="Thu16" Type="bit" Nullable="false" />
+          <Property Name="Thu17" Type="bit" Nullable="false" />
+          <Property Name="Thu18" Type="bit" Nullable="false" />
+          <Property Name="Thu19" Type="bit" Nullable="false" />
+          <Property Name="Thu20" Type="bit" Nullable="false" />
+          <Property Name="Fri08" Type="bit" Nullable="false" />
+          <Property Name="Fri09" Type="bit" Nullable="false" />
+          <Property Name="Fri10" Type="bit" Nullable="false" />
+          <Property Name="Fri11" Type="bit" Nullable="false" />
+          <Property Name="Fri12" Type="bit" Nullable="false" />
+          <Property Name="Fri13" Type="bit" Nullable="false" />
+          <Property Name="Fri14" Type="bit" Nullable="false" />
+          <Property Name="Fri15" Type="bit" Nullable="false" />
+          <Property Name="Fri16" Type="bit" Nullable="false" />
+          <Property Name="Fri17" Type="bit" Nullable="false" />
+          <Property Name="Fri18" Type="bit" Nullable="false" />
+          <Property Name="Fri19" Type="bit" Nullable="false" />
+          <Property Name="Fri20" Type="bit" Nullable="false" />
+          <Property Name="Sat08" Type="bit" Nullable="false" />
+          <Property Name="Sat09" Type="bit" Nullable="false" />
+          <Property Name="Sat10" Type="bit" Nullable="false" />
+          <Property Name="Sat11" Type="bit" Nullable="false" />
+          <Property Name="Sat12" Type="bit" Nullable="false" />
+          <Property Name="Sat13" Type="bit" Nullable="false" />
+          <Property Name="Sat14" Type="bit" Nullable="false" />
+          <Property Name="Sat15" Type="bit" Nullable="false" />
+          <Property Name="Sat16" Type="bit" Nullable="false" />
+          <Property Name="Sat17" Type="bit" Nullable="false" />
+          <Property Name="Sat18" Type="bit" Nullable="false" />
+          <Property Name="Sat19" Type="bit" Nullable="false" />
+          <Property Name="Sat20" Type="bit" Nullable="false" />
+          <Property Name="Sun08" Type="bit" Nullable="false" />
+          <Property Name="Sun09" Type="bit" Nullable="false" />
+          <Property Name="Sun10" Type="bit" Nullable="false" />
+          <Property Name="Sun11" Type="bit" Nullable="false" />
+          <Property Name="Sun12" Type="bit" Nullable="false" />
+          <Property Name="Sun13" Type="bit" Nullable="false" />
+          <Property Name="Sun14" Type="bit" Nullable="false" />
+          <Property Name="Sun15" Type="bit" Nullable="false" />
+          <Property Name="Sun16" Type="bit" Nullable="false" />
+          <Property Name="Sun17" Type="bit" Nullable="false" />
+          <Property Name="Sun18" Type="bit" Nullable="false" />
+          <Property Name="Sun19" Type="bit" Nullable="false" />
+          <Property Name="Sun20" Type="bit" Nullable="false" />
+          <Property Name="Modified" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Staffs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TitleId" Type="int" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudyTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="STCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeIntervals">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IntervalTime" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Titles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssignedRole" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UPOS.dbo.ActivityList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ActivityList">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="ModuleCode" />
+            <PropertyRef Name="ActivityType" />
+            <PropertyRef Name="TotalHours" />
+            <PropertyRef Name="EvaluationType" />
+            <PropertyRef Name="RoomType" />
+            <PropertyRef Name="Staff" />
+            <PropertyRef Name="GroupNumber" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NameEN" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModuleCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityType" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TotalHours" Type="int" Nullable="false" />
+          <Property Name="EvaluationType" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoomType" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Staff" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Modified" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="GroupNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UPOS.dbo.ModuleList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ModuleList">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="ModuleCode" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="Coordinator" />
+            <PropertyRef Name="AcademicYear" />
+            <PropertyRef Name="Semester" />
+            <PropertyRef Name="CourseType" />
+            <PropertyRef Name="DegreeType" />
+            <PropertyRef Name="StudyType" />
+            <PropertyRef Name="Language" />
+            <PropertyRef Name="ECTS" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="NameEN" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ModuleCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Specialization" Type="nvarchar" MaxLength="255" />
+          <Property Name="Coordinator" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AcademicYear" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Semester" Type="int" Nullable="false" />
+          <Property Name="CourseType" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DegreeType" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="StudyType" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Language" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ECTS" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1023" />
+          <Property Name="Modified" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UPOS.dbo.vwRoomAvailability' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwRoomAvailability">
+          <Key>
+            
+            
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="LocId" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="IntervalTime" Type="smalldatetime" />
+          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ActivityTypeActivity">
+          <End Role="ActivityTypes" Type="Self.ActivityTypes" Multiplicity="1" />
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseTypeModule">
+          <End Role="CourseTypes" Type="Self.CourseTypes" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="CourseTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DegreeTypeModule">
+          <End Role="DegreeTypes" Type="Self.DegreeTypes" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DegreeTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="DegreeTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentModule">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EvalTypeActivity">
+          <End Role="EvalTypes" Type="Self.EvalTypes" Multiplicity="1" />
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EvalTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="EvalTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LanguageModule">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleActivity">
+          <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_AcademicYears">
+          <End Role="AcademicYears" Type="Self.AcademicYears" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicYears">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="AcademicYearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_AcademicYears1">
+          <End Role="AcademicYears" Type="Self.AcademicYears" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicYears">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="PreparedYearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_Departments">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="CoordinatorDeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_ModuleStatusSet">
+          <End Role="ModuleStatusSet" Type="Self.ModuleStatusSet" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModuleStatusSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_Semesters">
+          <End Role="Semesters" Type="Self.Semesters" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semesters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="SemesterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomTypeActivity">
+          <End Role="RoomTypes" Type="Self.RoomTypes" Multiplicity="1" />
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="RoomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffActivity">
+          <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staffs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAvailabilities_AvailabilityPeriods">
+          <End Role="AvailabilityPeriods" Type="Self.AvailabilityPeriods" Multiplicity="1" />
+          <End Role="StaffAvailabilities" Type="Self.StaffAvailabilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabilityPeriods">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StaffAvailabilities">
+              <PropertyRef Name="PeriodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAvailabilities_Staffs">
+          <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
+          <End Role="StaffAvailabilities" Type="Self.StaffAvailabilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staffs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StaffAvailabilities">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffModule">
+          <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staffs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="Coordinator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staffs_Departments">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staffs">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudyTypeModule">
+          <End Role="StudyTypes" Type="Self.StudyTypes" Multiplicity="1" />
+          <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudyTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules">
+              <PropertyRef Name="StudyTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TitleStaff">
+          <End Role="Titles" Type="Self.Titles" Multiplicity="1" />
+          <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Titles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staffs">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UPOSModelStoreContainer">
+          <EntitySet Name="AcademicYears" EntityType="Self.AcademicYears" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityTypes" EntityType="Self.ActivityTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppLookups" EntityType="Self.AppLookups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AvailabilityPeriods" EntityType="Self.AvailabilityPeriods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseTypes" EntityType="Self.CourseTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DegreeTypes" EntityType="Self.DegreeTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EvalTypes" EntityType="Self.EvalTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModuleStatusSet" EntityType="Self.ModuleStatusSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomTypes" EntityType="Self.RoomTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semesters" EntityType="Self.Semesters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffAvailabilities" EntityType="Self.StaffAvailabilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staffs" EntityType="Self.Staffs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudyTypes" EntityType="Self.StudyTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeIntervals" EntityType="Self.TimeIntervals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityList" EntityType="Self.ActivityList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ActivityList].[Id] AS [Id], 
+    [ActivityList].[Name] AS [Name], 
+    [ActivityList].[NameEN] AS [NameEN], 
+    [ActivityList].[ModuleCode] AS [ModuleCode], 
+    [ActivityList].[ActivityType] AS [ActivityType], 
+    [ActivityList].[TotalHours] AS [TotalHours], 
+    [ActivityList].[EvaluationType] AS [EvaluationType], 
+    [ActivityList].[RoomType] AS [RoomType], 
+    [ActivityList].[Staff] AS [Staff], 
+    [ActivityList].[Note] AS [Note], 
+    [ActivityList].[Modified] AS [Modified], 
+    [ActivityList].[ModifiedBy] AS [ModifiedBy], 
+    [ActivityList].[GroupNumber] AS [GroupNumber]
+    FROM [dbo].[ActivityList] AS [ActivityList]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ModuleList" EntityType="Self.ModuleList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ModuleList].[Id] AS [Id], 
+    [ModuleList].[Name] AS [Name], 
+    [ModuleList].[NameEN] AS [NameEN], 
+    [ModuleList].[ModuleCode] AS [ModuleCode], 
+    [ModuleList].[Department] AS [Department], 
+    [ModuleList].[Specialization] AS [Specialization], 
+    [ModuleList].[Coordinator] AS [Coordinator], 
+    [ModuleList].[AcademicYear] AS [AcademicYear], 
+    [ModuleList].[Semester] AS [Semester], 
+    [ModuleList].[CourseType] AS [CourseType], 
+    [ModuleList].[DegreeType] AS [DegreeType], 
+    [ModuleList].[StudyType] AS [StudyType], 
+    [ModuleList].[Language] AS [Language], 
+    [ModuleList].[ECTS] AS [ECTS], 
+    [ModuleList].[Note] AS [Note], 
+    [ModuleList].[Modified] AS [Modified], 
+    [ModuleList].[ModifiedBy] AS [ModifiedBy]
+    FROM [dbo].[ModuleList] AS [ModuleList]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwRoomAvailability" EntityType="Self.vwRoomAvailability" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwRoomAvailability].[Id] AS [Id], 
+    [vwRoomAvailability].[LocId] AS [LocId], 
+    [vwRoomAvailability].[Name] AS [Name], 
+    [vwRoomAvailability].[Capacity] AS [Capacity], 
+    [vwRoomAvailability].[IntervalTime] AS [IntervalTime], 
+    [vwRoomAvailability].[Color] AS [Color]
+    FROM [dbo].[vwRoomAvailability] AS [vwRoomAvailability]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ActivityTypeActivity" Association="Self.FK_ActivityTypeActivity">
+            <End Role="ActivityTypes" EntitySet="ActivityTypes" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseTypeModule" Association="Self.FK_CourseTypeModule">
+            <End Role="CourseTypes" EntitySet="CourseTypes" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DegreeTypeModule" Association="Self.FK_DegreeTypeModule">
+            <End Role="DegreeTypes" EntitySet="DegreeTypes" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentModule" Association="Self.FK_DepartmentModule">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EvalTypeActivity" Association="Self.FK_EvalTypeActivity">
+            <End Role="EvalTypes" EntitySet="EvalTypes" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LanguageModule" Association="Self.FK_LanguageModule">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleActivity" Association="Self.FK_ModuleActivity">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_AcademicYears" Association="Self.FK_Modules_AcademicYears">
+            <End Role="AcademicYears" EntitySet="AcademicYears" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_AcademicYears1" Association="Self.FK_Modules_AcademicYears1">
+            <End Role="AcademicYears" EntitySet="AcademicYears" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_Departments" Association="Self.FK_Modules_Departments">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_ModuleStatusSet" Association="Self.FK_Modules_ModuleStatusSet">
+            <End Role="ModuleStatusSet" EntitySet="ModuleStatusSet" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_Semesters" Association="Self.FK_Modules_Semesters">
+            <End Role="Semesters" EntitySet="Semesters" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomTypeActivity" Association="Self.FK_RoomTypeActivity">
+            <End Role="RoomTypes" EntitySet="RoomTypes" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffActivity" Association="Self.FK_StaffActivity">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAvailabilities_AvailabilityPeriods" Association="Self.FK_StaffAvailabilities_AvailabilityPeriods">
+            <End Role="AvailabilityPeriods" EntitySet="AvailabilityPeriods" />
+            <End Role="StaffAvailabilities" EntitySet="StaffAvailabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAvailabilities_Staffs" Association="Self.FK_StaffAvailabilities_Staffs">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="StaffAvailabilities" EntitySet="StaffAvailabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffModule" Association="Self.FK_StaffModule">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staffs_Departments" Association="Self.FK_Staffs_Departments">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Staffs" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudyTypeModule" Association="Self.FK_StudyTypeModule">
+            <End Role="StudyTypes" EntitySet="StudyTypes" />
+            <End Role="Modules" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TitleStaff" Association="Self.FK_TitleStaff">
+            <End Role="Titles" EntitySet="Titles" />
+            <End Role="Staffs" EntitySet="Staffs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UPOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UPOSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AcademicYears" EntityType="UPOSModel.AcademicYear" />
+          <EntitySet Name="ActivityTypes" EntityType="UPOSModel.ActivityType" />
+          <EntitySet Name="AppLookups" EntityType="UPOSModel.AppLookup" />
+          <EntitySet Name="AvailabilityPeriods" EntityType="UPOSModel.AvailabilityPeriod" />
+          <EntitySet Name="CourseTypes" EntityType="UPOSModel.CourseType" />
+          <EntitySet Name="DegreeTypes" EntityType="UPOSModel.DegreeType" />
+          <EntitySet Name="Departments" EntityType="UPOSModel.Department" />
+          <EntitySet Name="EvalTypes" EntityType="UPOSModel.EvalType" />
+          <EntitySet Name="Languages" EntityType="UPOSModel.Language" />
+          <EntitySet Name="Modules" EntityType="UPOSModel.Module" />
+          <EntitySet Name="RoomTypes" EntityType="UPOSModel.RoomType" />
+          <EntitySet Name="Semesters" EntityType="UPOSModel.Semester" />
+          <EntitySet Name="StaffAvailabilities" EntityType="UPOSModel.StaffAvailability" />
+          <EntitySet Name="Staffs" EntityType="UPOSModel.Staff" />
+          <EntitySet Name="StudyTypes" EntityType="UPOSModel.StudyType" />
+          <EntitySet Name="TimeIntervals" EntityType="UPOSModel.TimeInterval" />
+          <EntitySet Name="Titles" EntityType="UPOSModel.Title" />
+          <EntitySet Name="UserRoles" EntityType="UPOSModel.UserRole" />
+          <EntitySet Name="ActivityLists" EntityType="UPOSModel.ActivityList" />
+          <EntitySet Name="ModuleLists" EntityType="UPOSModel.ModuleList" />
+          <AssociationSet Name="FK_Modules_AcademicYears" Association="UPOSModel.FK_Modules_AcademicYears">
+            <End Role="AcademicYear" EntitySet="AcademicYears" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAvailabilities_AvailabilityPeriods" Association="UPOSModel.FK_StaffAvailabilities_AvailabilityPeriods">
+            <End Role="AvailabilityPeriod" EntitySet="AvailabilityPeriods" />
+            <End Role="StaffAvailability" EntitySet="StaffAvailabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseTypeModule" Association="UPOSModel.FK_CourseTypeModule">
+            <End Role="CourseType" EntitySet="CourseTypes" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DegreeTypeModule" Association="UPOSModel.FK_DegreeTypeModule">
+            <End Role="DegreeType" EntitySet="DegreeTypes" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentModule" Association="UPOSModel.FK_DepartmentModule">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staffs_Departments" Association="UPOSModel.FK_Staffs_Departments">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LanguageModule" Association="UPOSModel.FK_LanguageModule">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_Semesters" Association="UPOSModel.FK_Modules_Semesters">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffModule" Association="UPOSModel.FK_StaffModule">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudyTypeModule" Association="UPOSModel.FK_StudyTypeModule">
+            <End Role="StudyType" EntitySet="StudyTypes" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAvailabilities_Staffs" Association="UPOSModel.FK_StaffAvailabilities_Staffs">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="StaffAvailability" EntitySet="StaffAvailabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TitleStaff" Association="UPOSModel.FK_TitleStaff">
+            <End Role="Title" EntitySet="Titles" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <EntitySet Name="vwRoomAvailabilities" EntityType="UPOSModel.vwRoomAvailability" />
+          <EntitySet Name="ModuleStatusSets" EntityType="UPOSModel.ModuleStatusSet" />
+          <AssociationSet Name="FK_Modules_ModuleStatusSet" Association="UPOSModel.FK_Modules_ModuleStatusSet">
+            <End Role="ModuleStatusSet" EntitySet="ModuleStatusSets" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_Departments" Association="UPOSModel.FK_Modules_Departments">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <EntitySet Name="Activities" EntityType="UPOSModel.Activity" />
+          <AssociationSet Name="FK_ActivityTypeActivity" Association="UPOSModel.FK_ActivityTypeActivity">
+            <End Role="ActivityType" EntitySet="ActivityTypes" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EvalTypeActivity" Association="UPOSModel.FK_EvalTypeActivity">
+            <End Role="EvalType" EntitySet="EvalTypes" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleActivity" Association="UPOSModel.FK_ModuleActivity">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomTypeActivity" Association="UPOSModel.FK_RoomTypeActivity">
+            <End Role="RoomType" EntitySet="RoomTypes" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffActivity" Association="UPOSModel.FK_StaffActivity">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modules_AcademicYears1" Association="UPOSModel.FK_Modules_AcademicYears1">
+            <End Role="AcademicYear" EntitySet="AcademicYears" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AcademicYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_Modules_AcademicYears" FromRole="AcademicYear" ToRole="Module" />
+          <NavigationProperty Name="Modules1" Relationship="UPOSModel.FK_Modules_AcademicYears1" FromRole="AcademicYear" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activities" Relationship="UPOSModel.FK_ActivityTypeActivity" FromRole="ActivityType" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="AppLookup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LookupType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="NameEN" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AvailabilityPeriod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActivePeriod" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StaffAvailabilities" Relationship="UPOSModel.FK_StaffAvailabilities_AvailabilityPeriods" FromRole="AvailabilityPeriod" ToRole="StaffAvailability" />
+        </EntityType>
+        <EntityType Name="CourseType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_CourseTypeModule" FromRole="CourseType" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="DegreeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DTCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_DegreeTypeModule" FromRole="DegreeType" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeptCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_DepartmentModule" FromRole="Department" ToRole="Module" />
+          <NavigationProperty Name="Staffs" Relationship="UPOSModel.FK_Staffs_Departments" FromRole="Department" ToRole="Staff" />
+          <NavigationProperty Name="Modules1" Relationship="UPOSModel.FK_Modules_Departments" FromRole="Department" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="EvalType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activities" Relationship="UPOSModel.FK_EvalTypeActivity" FromRole="EvalType" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_LanguageModule" FromRole="Language" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NameEN" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="Specialization" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Coordinator" Type="Int32" Nullable="false" />
+          <Property Name="AcademicYearId" Type="Int32" Nullable="false" />
+          <Property Name="SemesterId" Type="Int32" Nullable="false" />
+          <Property Name="CourseTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DegreeTypeId" Type="Int32" Nullable="false" />
+          <Property Name="StudyTypeId" Type="Int32" Nullable="false" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="ECTS" Type="Int32" Nullable="false" />
+          <Property Name="IsFL" Type="Boolean" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="1023" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="Modified" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AcademicYear" Relationship="UPOSModel.FK_Modules_AcademicYears" FromRole="Module" ToRole="AcademicYear" />
+          <NavigationProperty Name="CourseType" Relationship="UPOSModel.FK_CourseTypeModule" FromRole="Module" ToRole="CourseType" />
+          <NavigationProperty Name="DegreeType" Relationship="UPOSModel.FK_DegreeTypeModule" FromRole="Module" ToRole="DegreeType" />
+          <NavigationProperty Name="Department" Relationship="UPOSModel.FK_DepartmentModule" FromRole="Module" ToRole="Department" />
+          <NavigationProperty Name="Language" Relationship="UPOSModel.FK_LanguageModule" FromRole="Module" ToRole="Language" />
+          <NavigationProperty Name="Semester" Relationship="UPOSModel.FK_Modules_Semesters" FromRole="Module" ToRole="Semester" />
+          <NavigationProperty Name="Staff" Relationship="UPOSModel.FK_StaffModule" FromRole="Module" ToRole="Staff" />
+          <NavigationProperty Name="StudyType" Relationship="UPOSModel.FK_StudyTypeModule" FromRole="Module" ToRole="StudyType" />
+          <Property Name="ModuleSize" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ModuleStatusSet" Relationship="UPOSModel.FK_Modules_ModuleStatusSet" FromRole="Module" ToRole="ModuleStatusSet" />
+          <Property Name="CoordinatorDeptId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Department1" Relationship="UPOSModel.FK_Modules_Departments" FromRole="Module" ToRole="Department" />
+          <NavigationProperty Name="Activities" Relationship="UPOSModel.FK_ModuleActivity" FromRole="Module" ToRole="Activity" />
+          <Property Name="PreparedYearId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PreparedYear" Relationship="UPOSModel.FK_Modules_AcademicYears1" FromRole="Module" ToRole="AcademicYear" />
+        </EntityType>
+        <EntityType Name="RoomType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activities" Relationship="UPOSModel.FK_RoomTypeActivity" FromRole="RoomType" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_Modules_Semesters" FromRole="Semester" ToRole="Module" />
+          <Property Name="Season" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StaffAvailability">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <Property Name="PeriodId" Type="Int32" Nullable="false" />
+          <Property Name="Mon08" Type="Boolean" Nullable="false" />
+          <Property Name="Mon09" Type="Boolean" Nullable="false" />
+          <Property Name="Mon10" Type="Boolean" Nullable="false" />
+          <Property Name="Mon11" Type="Boolean" Nullable="false" />
+          <Property Name="Mon12" Type="Boolean" Nullable="false" />
+          <Property Name="Mon13" Type="Boolean" Nullable="false" />
+          <Property Name="Mon14" Type="Boolean" Nullable="false" />
+          <Property Name="Mon15" Type="Boolean" Nullable="false" />
+          <Property Name="Mon16" Type="Boolean" Nullable="false" />
+          <Property Name="Mon17" Type="Boolean" Nullable="false" />
+          <Property Name="Mon18" Type="Boolean" Nullable="false" />
+          <Property Name="Mon19" Type="Boolean" Nullable="false" />
+          <Property Name="Mon20" Type="Boolean" Nullable="false" />
+          <Property Name="Tue08" Type="Boolean" Nullable="false" />
+          <Property Name="Tue09" Type="Boolean" Nullable="false" />
+          <Property Name="Tue10" Type="Boolean" Nullable="false" />
+          <Property Name="Tue11" Type="Boolean" Nullable="false" />
+          <Property Name="Tue12" Type="Boolean" Nullable="false" />
+          <Property Name="Tue13" Type="Boolean" Nullable="false" />
+          <Property Name="Tue14" Type="Boolean" Nullable="false" />
+          <Property Name="Tue15" Type="Boolean" Nullable="false" />
+          <Property Name="Tue16" Type="Boolean" Nullable="false" />
+          <Property Name="Tue17" Type="Boolean" Nullable="false" />
+          <Property Name="Tue18" Type="Boolean" Nullable="false" />
+          <Property Name="Tue19" Type="Boolean" Nullable="false" />
+          <Property Name="Tue20" Type="Boolean" Nullable="false" />
+          <Property Name="Wed08" Type="Boolean" Nullable="false" />
+          <Property Name="Wed09" Type="Boolean" Nullable="false" />
+          <Property Name="Wed10" Type="Boolean" Nullable="false" />
+          <Property Name="Wed11" Type="Boolean" Nullable="false" />
+          <Property Name="Wed12" Type="Boolean" Nullable="false" />
+          <Property Name="Wed13" Type="Boolean" Nullable="false" />
+          <Property Name="Wed14" Type="Boolean" Nullable="false" />
+          <Property Name="Wed15" Type="Boolean" Nullable="false" />
+          <Property Name="Wed16" Type="Boolean" Nullable="false" />
+          <Property Name="Wed17" Type="Boolean" Nullable="false" />
+          <Property Name="Wed18" Type="Boolean" Nullable="false" />
+          <Property Name="Wed19" Type="Boolean" Nullable="false" />
+          <Property Name="Wed20" Type="Boolean" Nullable="false" />
+          <Property Name="Thu08" Type="Boolean" Nullable="false" />
+          <Property Name="Thu09" Type="Boolean" Nullable="false" />
+          <Property Name="Thu10" Type="Boolean" Nullable="false" />
+          <Property Name="Thu11" Type="Boolean" Nullable="false" />
+          <Property Name="Thu12" Type="Boolean" Nullable="false" />
+          <Property Name="Thu13" Type="Boolean" Nullable="false" />
+          <Property Name="Thu14" Type="Boolean" Nullable="false" />
+          <Property Name="Thu15" Type="Boolean" Nullable="false" />
+          <Property Name="Thu16" Type="Boolean" Nullable="false" />
+          <Property Name="Thu17" Type="Boolean" Nullable="false" />
+          <Property Name="Thu18" Type="Boolean" Nullable="false" />
+          <Property Name="Thu19" Type="Boolean" Nullable="false" />
+          <Property Name="Thu20" Type="Boolean" Nullable="false" />
+          <Property Name="Fri08" Type="Boolean" Nullable="false" />
+          <Property Name="Fri09" Type="Boolean" Nullable="false" />
+          <Property Name="Fri10" Type="Boolean" Nullable="false" />
+          <Property Name="Fri11" Type="Boolean" Nullable="false" />
+          <Property Name="Fri12" Type="Boolean" Nullable="false" />
+          <Property Name="Fri13" Type="Boolean" Nullable="false" />
+          <Property Name="Fri14" Type="Boolean" Nullable="false" />
+          <Property Name="Fri15" Type="Boolean" Nullable="false" />
+          <Property Name="Fri16" Type="Boolean" Nullable="false" />
+          <Property Name="Fri17" Type="Boolean" Nullable="false" />
+          <Property Name="Fri18" Type="Boolean" Nullable="false" />
+          <Property Name="Fri19" Type="Boolean" Nullable="false" />
+          <Property Name="Fri20" Type="Boolean" Nullable="false" />
+          <Property Name="Sat08" Type="Boolean" Nullable="false" />
+          <Property Name="Sat09" Type="Boolean" Nullable="false" />
+          <Property Name="Sat10" Type="Boolean" Nullable="false" />
+          <Property Name="Sat11" Type="Boolean" Nullable="false" />
+          <Property Name="Sat12" Type="Boolean" Nullable="false" />
+          <Property Name="Sat13" Type="Boolean" Nullable="false" />
+          <Property Name="Sat14" Type="Boolean" Nullable="false" />
+          <Property Name="Sat15" Type="Boolean" Nullable="false" />
+          <Property Name="Sat16" Type="Boolean" Nullable="false" />
+          <Property Name="Sat17" Type="Boolean" Nullable="false" />
+          <Property Name="Sat18" Type="Boolean" Nullable="false" />
+          <Property Name="Sat19" Type="Boolean" Nullable="false" />
+          <Property Name="Sat20" Type="Boolean" Nullable="false" />
+          <Property Name="Sun08" Type="Boolean" Nullable="false" />
+          <Property Name="Sun09" Type="Boolean" Nullable="false" />
+          <Property Name="Sun10" Type="Boolean" Nullable="false" />
+          <Property Name="Sun11" Type="Boolean" Nullable="false" />
+          <Property Name="Sun12" Type="Boolean" Nullable="false" />
+          <Property Name="Sun13" Type="Boolean" Nullable="false" />
+          <Property Name="Sun14" Type="Boolean" Nullable="false" />
+          <Property Name="Sun15" Type="Boolean" Nullable="false" />
+          <Property Name="Sun16" Type="Boolean" Nullable="false" />
+          <Property Name="Sun17" Type="Boolean" Nullable="false" />
+          <Property Name="Sun18" Type="Boolean" Nullable="false" />
+          <Property Name="Sun19" Type="Boolean" Nullable="false" />
+          <Property Name="Sun20" Type="Boolean" Nullable="false" />
+          <Property Name="Modified" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AvailabilityPeriod" Relationship="UPOSModel.FK_StaffAvailabilities_AvailabilityPeriods" FromRole="StaffAvailability" ToRole="AvailabilityPeriod" />
+          <NavigationProperty Name="Staff" Relationship="UPOSModel.FK_StaffAvailabilities_Staffs" FromRole="StaffAvailability" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TitleId" Type="Int32" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="UPOSModel.FK_Staffs_Departments" FromRole="Staff" ToRole="Department" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_StaffModule" FromRole="Staff" ToRole="Module" />
+          <NavigationProperty Name="StaffAvailabilities" Relationship="UPOSModel.FK_StaffAvailabilities_Staffs" FromRole="Staff" ToRole="StaffAvailability" />
+          <NavigationProperty Name="Title" Relationship="UPOSModel.FK_TitleStaff" FromRole="Staff" ToRole="Title" />
+          <NavigationProperty Name="Activities" Relationship="UPOSModel.FK_StaffActivity" FromRole="Staff" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="StudyType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="STCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_StudyTypeModule" FromRole="StudyType" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="TimeInterval">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IntervalTime" Type="Time" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staffs" Relationship="UPOSModel.FK_TitleStaff" FromRole="Title" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssignedRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ActivityList">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="ActivityType" />
+            <PropertyRef Name="TotalHours" />
+            <PropertyRef Name="EvaluationType" />
+            <PropertyRef Name="RoomType" />
+            <PropertyRef Name="Staff" />
+            <PropertyRef Name="GroupNumber" />
+            <PropertyRef Name="ModuleCode" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NameEN" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityType" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TotalHours" Type="Int32" Nullable="false" />
+          <Property Name="EvaluationType" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RoomType" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Staff" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupNumber" Type="Int32" Nullable="false" />
+          <Property Name="ModuleCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ModuleList">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="ModuleCode" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="Coordinator" />
+            <PropertyRef Name="AcademicYear" />
+            <PropertyRef Name="Semester" />
+            <PropertyRef Name="CourseType" />
+            <PropertyRef Name="DegreeType" />
+            <PropertyRef Name="StudyType" />
+            <PropertyRef Name="Language" />
+            <PropertyRef Name="ECTS" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="NameEN" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Specialization" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Coordinator" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AcademicYear" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Semester" Type="Int32" Nullable="false" />
+          <Property Name="CourseType" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DegreeType" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="StudyType" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ECTS" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="1023" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Modules_AcademicYears">
+          <End Type="UPOSModel.AcademicYear" Role="AcademicYear" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="AcademicYearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAvailabilities_AvailabilityPeriods">
+          <End Type="UPOSModel.AvailabilityPeriod" Role="AvailabilityPeriod" Multiplicity="1" />
+          <End Type="UPOSModel.StaffAvailability" Role="StaffAvailability" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabilityPeriod">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StaffAvailability">
+              <PropertyRef Name="PeriodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseTypeModule">
+          <End Type="UPOSModel.CourseType" Role="CourseType" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="CourseTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DegreeTypeModule">
+          <End Type="UPOSModel.DegreeType" Role="DegreeType" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DegreeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="DegreeTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentModule">
+          <End Type="UPOSModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staffs_Departments">
+          <End Type="UPOSModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="UPOSModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LanguageModule">
+          <End Type="UPOSModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_Semesters">
+          <End Type="UPOSModel.Semester" Role="Semester" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="SemesterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffModule">
+          <End Type="UPOSModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="Coordinator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudyTypeModule">
+          <End Type="UPOSModel.StudyType" Role="StudyType" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="StudyTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAvailabilities_Staffs">
+          <End Type="UPOSModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="UPOSModel.StaffAvailability" Role="StaffAvailability" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StaffAvailability">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TitleStaff">
+          <End Type="UPOSModel.Title" Role="Title" Multiplicity="1" />
+          <End Type="UPOSModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vwRoomAvailability">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="LocId" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="IntervalTime" Type="DateTime" Precision="0" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ModuleStatusSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modules" Relationship="UPOSModel.FK_Modules_ModuleStatusSet" FromRole="ModuleStatusSet" ToRole="Module" />
+        </EntityType>
+        <Association Name="FK_Modules_ModuleStatusSet">
+          <End Type="UPOSModel.ModuleStatusSet" Role="ModuleStatusSet" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModuleStatusSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_Departments">
+          <End Type="UPOSModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="CoordinatorDeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="Int32" Nullable="false" />
+          <Property Name="TotalHours" Type="Int32" Nullable="false" />
+          <Property Name="EvalTypeId" Type="Int32" Nullable="false" />
+          <Property Name="RoomTypeId" Type="Int32" Nullable="false" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActivityType" Relationship="UPOSModel.FK_ActivityTypeActivity" FromRole="Activity" ToRole="ActivityType" />
+          <NavigationProperty Name="EvalType" Relationship="UPOSModel.FK_EvalTypeActivity" FromRole="Activity" ToRole="EvalType" />
+          <NavigationProperty Name="Module" Relationship="UPOSModel.FK_ModuleActivity" FromRole="Activity" ToRole="Module" />
+          <NavigationProperty Name="RoomType" Relationship="UPOSModel.FK_RoomTypeActivity" FromRole="Activity" ToRole="RoomType" />
+          <NavigationProperty Name="Staff" Relationship="UPOSModel.FK_StaffActivity" FromRole="Activity" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_ActivityTypeActivity">
+          <End Type="UPOSModel.ActivityType" Role="ActivityType" Multiplicity="1" />
+          <End Type="UPOSModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EvalTypeActivity">
+          <End Type="UPOSModel.EvalType" Role="EvalType" Multiplicity="1" />
+          <End Type="UPOSModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EvalType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="EvalTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleActivity">
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="1" />
+          <End Type="UPOSModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomTypeActivity">
+          <End Type="UPOSModel.RoomType" Role="RoomType" Multiplicity="1" />
+          <End Type="UPOSModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="RoomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffActivity">
+          <End Type="UPOSModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="UPOSModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modules_AcademicYears1">
+          <End Type="UPOSModel.AcademicYear" Role="AcademicYear" Multiplicity="1" />
+          <End Type="UPOSModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcademicYear">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="PreparedYearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UPOSModelStoreContainer" CdmEntityContainer="UPOSEntities">
+          <EntitySetMapping Name="AcademicYears">
+            <EntityTypeMapping TypeName="UPOSModel.AcademicYear">
+              <MappingFragment StoreEntitySet="AcademicYears">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityTypes">
+            <EntityTypeMapping TypeName="UPOSModel.ActivityType">
+              <MappingFragment StoreEntitySet="ActivityTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppLookups">
+            <EntityTypeMapping TypeName="UPOSModel.AppLookup">
+              <MappingFragment StoreEntitySet="AppLookups">
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LookupType" ColumnName="LookupType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvailabilityPeriods">
+            <EntityTypeMapping TypeName="UPOSModel.AvailabilityPeriod">
+              <MappingFragment StoreEntitySet="AvailabilityPeriods">
+                <ScalarProperty Name="IsActivePeriod" ColumnName="IsActivePeriod" />
+                <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseTypes">
+            <EntityTypeMapping TypeName="UPOSModel.CourseType">
+              <MappingFragment StoreEntitySet="CourseTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DegreeTypes">
+            <EntityTypeMapping TypeName="UPOSModel.DegreeType">
+              <MappingFragment StoreEntitySet="DegreeTypes">
+                <ScalarProperty Name="DTCode" ColumnName="DTCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="UPOSModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EvalTypes">
+            <EntityTypeMapping TypeName="UPOSModel.EvalType">
+              <MappingFragment StoreEntitySet="EvalTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="UPOSModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="LCode" ColumnName="LCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="UPOSModel.Module">
+              <MappingFragment StoreEntitySet="Modules">
+                <ScalarProperty Name="PreparedYearId" ColumnName="PreparedYearId" />
+                <ScalarProperty Name="CoordinatorDeptId" ColumnName="CoordinatorDeptId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="ModuleSize" ColumnName="ModuleSize" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsFL" ColumnName="IsFL" />
+                <ScalarProperty Name="ECTS" ColumnName="ECTS" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="StudyTypeId" ColumnName="StudyTypeId" />
+                <ScalarProperty Name="DegreeTypeId" ColumnName="DegreeTypeId" />
+                <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+                <ScalarProperty Name="AcademicYearId" ColumnName="AcademicYearId" />
+                <ScalarProperty Name="Coordinator" ColumnName="Coordinator" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomTypes">
+            <EntityTypeMapping TypeName="UPOSModel.RoomType">
+              <MappingFragment StoreEntitySet="RoomTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semesters">
+            <EntityTypeMapping TypeName="UPOSModel.Semester">
+              <MappingFragment StoreEntitySet="Semesters">
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffAvailabilities">
+            <EntityTypeMapping TypeName="UPOSModel.StaffAvailability">
+              <MappingFragment StoreEntitySet="StaffAvailabilities">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Sun20" ColumnName="Sun20" />
+                <ScalarProperty Name="Sun19" ColumnName="Sun19" />
+                <ScalarProperty Name="Sun18" ColumnName="Sun18" />
+                <ScalarProperty Name="Sun17" ColumnName="Sun17" />
+                <ScalarProperty Name="Sun16" ColumnName="Sun16" />
+                <ScalarProperty Name="Sun15" ColumnName="Sun15" />
+                <ScalarProperty Name="Sun14" ColumnName="Sun14" />
+                <ScalarProperty Name="Sun13" ColumnName="Sun13" />
+                <ScalarProperty Name="Sun12" ColumnName="Sun12" />
+                <ScalarProperty Name="Sun11" ColumnName="Sun11" />
+                <ScalarProperty Name="Sun10" ColumnName="Sun10" />
+                <ScalarProperty Name="Sun09" ColumnName="Sun09" />
+                <ScalarProperty Name="Sun08" ColumnName="Sun08" />
+                <ScalarProperty Name="Sat20" ColumnName="Sat20" />
+                <ScalarProperty Name="Sat19" ColumnName="Sat19" />
+                <ScalarProperty Name="Sat18" ColumnName="Sat18" />
+                <ScalarProperty Name="Sat17" ColumnName="Sat17" />
+                <ScalarProperty Name="Sat16" ColumnName="Sat16" />
+                <ScalarProperty Name="Sat15" ColumnName="Sat15" />
+                <ScalarProperty Name="Sat14" ColumnName="Sat14" />
+                <ScalarProperty Name="Sat13" ColumnName="Sat13" />
+                <ScalarProperty Name="Sat12" ColumnName="Sat12" />
+                <ScalarProperty Name="Sat11" ColumnName="Sat11" />
+                <ScalarProperty Name="Sat10" ColumnName="Sat10" />
+                <ScalarProperty Name="Sat09" ColumnName="Sat09" />
+                <ScalarProperty Name="Sat08" ColumnName="Sat08" />
+                <ScalarProperty Name="Fri20" ColumnName="Fri20" />
+                <ScalarProperty Name="Fri19" ColumnName="Fri19" />
+                <ScalarProperty Name="Fri18" ColumnName="Fri18" />
+                <ScalarProperty Name="Fri17" ColumnName="Fri17" />
+                <ScalarProperty Name="Fri16" ColumnName="Fri16" />
+                <ScalarProperty Name="Fri15" ColumnName="Fri15" />
+                <ScalarProperty Name="Fri14" ColumnName="Fri14" />
+                <ScalarProperty Name="Fri13" ColumnName="Fri13" />
+                <ScalarProperty Name="Fri12" ColumnName="Fri12" />
+                <ScalarProperty Name="Fri11" ColumnName="Fri11" />
+                <ScalarProperty Name="Fri10" ColumnName="Fri10" />
+                <ScalarProperty Name="Fri09" ColumnName="Fri09" />
+                <ScalarProperty Name="Fri08" ColumnName="Fri08" />
+                <ScalarProperty Name="Thu20" ColumnName="Thu20" />
+                <ScalarProperty Name="Thu19" ColumnName="Thu19" />
+                <ScalarProperty Name="Thu18" ColumnName="Thu18" />
+                <ScalarProperty Name="Thu17" ColumnName="Thu17" />
+                <ScalarProperty Name="Thu16" ColumnName="Thu16" />
+                <ScalarProperty Name="Thu15" ColumnName="Thu15" />
+                <ScalarProperty Name="Thu14" ColumnName="Thu14" />
+                <ScalarProperty Name="Thu13" ColumnName="Thu13" />
+                <ScalarProperty Name="Thu12" ColumnName="Thu12" />
+                <ScalarProperty Name="Thu11" ColumnName="Thu11" />
+                <ScalarProperty Name="Thu10" ColumnName="Thu10" />
+                <ScalarProperty Name="Thu09" ColumnName="Thu09" />
+                <ScalarProperty Name="Thu08" ColumnName="Thu08" />
+                <ScalarProperty Name="Wed20" ColumnName="Wed20" />
+                <ScalarProperty Name="Wed19" ColumnName="Wed19" />
+                <ScalarProperty Name="Wed18" ColumnName="Wed18" />
+                <ScalarProperty Name="Wed17" ColumnName="Wed17" />
+                <ScalarProperty Name="Wed16" ColumnName="Wed16" />
+                <ScalarProperty Name="Wed15" ColumnName="Wed15" />
+                <ScalarProperty Name="Wed14" ColumnName="Wed14" />
+                <ScalarProperty Name="Wed13" ColumnName="Wed13" />
+                <ScalarProperty Name="Wed12" ColumnName="Wed12" />
+                <ScalarProperty Name="Wed11" ColumnName="Wed11" />
+                <ScalarProperty Name="Wed10" ColumnName="Wed10" />
+                <ScalarProperty Name="Wed09" ColumnName="Wed09" />
+                <ScalarProperty Name="Wed08" ColumnName="Wed08" />
+                <ScalarProperty Name="Tue20" ColumnName="Tue20" />
+                <ScalarProperty Name="Tue19" ColumnName="Tue19" />
+                <ScalarProperty Name="Tue18" ColumnName="Tue18" />
+                <ScalarProperty Name="Tue17" ColumnName="Tue17" />
+                <ScalarProperty Name="Tue16" ColumnName="Tue16" />
+                <ScalarProperty Name="Tue15" ColumnName="Tue15" />
+                <ScalarProperty Name="Tue14" ColumnName="Tue14" />
+                <ScalarProperty Name="Tue13" ColumnName="Tue13" />
+                <ScalarProperty Name="Tue12" ColumnName="Tue12" />
+                <ScalarProperty Name="Tue11" ColumnName="Tue11" />
+                <ScalarProperty Name="Tue10" ColumnName="Tue10" />
+                <ScalarProperty Name="Tue09" ColumnName="Tue09" />
+                <ScalarProperty Name="Tue08" ColumnName="Tue08" />
+                <ScalarProperty Name="Mon20" ColumnName="Mon20" />
+                <ScalarProperty Name="Mon19" ColumnName="Mon19" />
+                <ScalarProperty Name="Mon18" ColumnName="Mon18" />
+                <ScalarProperty Name="Mon17" ColumnName="Mon17" />
+                <ScalarProperty Name="Mon16" ColumnName="Mon16" />
+                <ScalarProperty Name="Mon15" ColumnName="Mon15" />
+                <ScalarProperty Name="Mon14" ColumnName="Mon14" />
+                <ScalarProperty Name="Mon13" ColumnName="Mon13" />
+                <ScalarProperty Name="Mon12" ColumnName="Mon12" />
+                <ScalarProperty Name="Mon11" ColumnName="Mon11" />
+                <ScalarProperty Name="Mon10" ColumnName="Mon10" />
+                <ScalarProperty Name="Mon09" ColumnName="Mon09" />
+                <ScalarProperty Name="Mon08" ColumnName="Mon08" />
+                <ScalarProperty Name="PeriodId" ColumnName="PeriodId" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="UPOSModel.Staff">
+              <MappingFragment StoreEntitySet="Staffs">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudyTypes">
+            <EntityTypeMapping TypeName="UPOSModel.StudyType">
+              <MappingFragment StoreEntitySet="StudyTypes">
+                <ScalarProperty Name="STCode" ColumnName="STCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeIntervals">
+            <EntityTypeMapping TypeName="UPOSModel.TimeInterval">
+              <MappingFragment StoreEntitySet="TimeIntervals">
+                <ScalarProperty Name="IntervalTime" ColumnName="IntervalTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titles">
+            <EntityTypeMapping TypeName="UPOSModel.Title">
+              <MappingFragment StoreEntitySet="Titles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="UPOSModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRoles">
+                <ScalarProperty Name="AssignedRole" ColumnName="AssignedRole" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityLists">
+            <EntityTypeMapping TypeName="UPOSModel.ActivityList">
+              <MappingFragment StoreEntitySet="ActivityList">
+                <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+                <ScalarProperty Name="GroupNumber" ColumnName="GroupNumber" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Staff" ColumnName="Staff" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="EvaluationType" ColumnName="EvaluationType" />
+                <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuleLists">
+            <EntityTypeMapping TypeName="UPOSModel.ModuleList">
+              <MappingFragment StoreEntitySet="ModuleList">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ECTS" ColumnName="ECTS" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="StudyType" ColumnName="StudyType" />
+                <ScalarProperty Name="DegreeType" ColumnName="DegreeType" />
+                <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
+                <ScalarProperty Name="Coordinator" ColumnName="Coordinator" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwRoomAvailabilities">
+            <EntityTypeMapping TypeName="UPOSModel.vwRoomAvailability">
+              <MappingFragment StoreEntitySet="vwRoomAvailability">
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="IntervalTime" ColumnName="IntervalTime" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocId" ColumnName="LocId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuleStatusSets">
+            <EntityTypeMapping TypeName="UPOSModel.ModuleStatusSet">
+              <MappingFragment StoreEntitySet="ModuleStatusSet">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="UPOSModel.Activity">
+              <MappingFragment StoreEntitySet="Activities">
+                <ScalarProperty Name="GroupNumber" ColumnName="GroupNumber" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+                <ScalarProperty Name="EvalTypeId" ColumnName="EvalTypeId" />
+                <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+                <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

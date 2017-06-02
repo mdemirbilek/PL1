@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9ed149ff364443db09fb41f57fd87d4" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="UPOSModel.AcademicYear" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="UPOSModel.ActivityType" Width="1.5" PointX="6" PointY="11.625" />
+        <EntityTypeShape EntityType="UPOSModel.AppLookup" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UPOSModel.AvailabilityPeriod" Width="1.5" PointX="9" PointY="10.875" />
+        <EntityTypeShape EntityType="UPOSModel.CourseType" Width="1.5" PointX="0.75" PointY="25" />
+        <EntityTypeShape EntityType="UPOSModel.DegreeType" Width="1.5" PointX="0.75" PointY="7.625" />
+        <EntityTypeShape EntityType="UPOSModel.Department" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="UPOSModel.EvalType" Width="1.5" PointX="6" PointY="21.375" />
+        <EntityTypeShape EntityType="UPOSModel.Language" Width="1.5" PointX="0.75" PointY="20.125" />
+        <EntityTypeShape EntityType="UPOSModel.Module" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="UPOSModel.RoomType" Width="1.5" PointX="6" PointY="19" />
+        <EntityTypeShape EntityType="UPOSModel.Semester" Width="1.5" PointX="0.75" PointY="22.625" />
+        <EntityTypeShape EntityType="UPOSModel.StaffAvailability" Width="1.5" PointX="11.25" PointY="5.875" />
+        <EntityTypeShape EntityType="UPOSModel.Staff" Width="1.5" PointX="6" PointY="14.375" />
+        <EntityTypeShape EntityType="UPOSModel.StudyType" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="UPOSModel.TimeInterval" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UPOSModel.Title" Width="1.5" PointX="3.75" PointY="10" />
+        <EntityTypeShape EntityType="UPOSModel.UserRole" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UPOSModel.ActivityList" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UPOSModel.ModuleList" Width="1.5" PointX="4.75" PointY="0.75" />
+        <AssociationConnector Association="UPOSModel.FK_Modules_AcademicYears" />
+        <AssociationConnector Association="UPOSModel.FK_StaffAvailabilities_AvailabilityPeriods" />
+        <AssociationConnector Association="UPOSModel.FK_CourseTypeModule" />
+        <AssociationConnector Association="UPOSModel.FK_DegreeTypeModule" />
+        <AssociationConnector Association="UPOSModel.FK_DepartmentModule" />
+        <AssociationConnector Association="UPOSModel.FK_Staffs_Departments" />
+        <AssociationConnector Association="UPOSModel.FK_LanguageModule" />
+        <AssociationConnector Association="UPOSModel.FK_Modules_Semesters" />
+        <AssociationConnector Association="UPOSModel.FK_StaffModule" />
+        <AssociationConnector Association="UPOSModel.FK_StudyTypeModule" />
+        <AssociationConnector Association="UPOSModel.FK_StaffAvailabilities_Staffs" />
+        <AssociationConnector Association="UPOSModel.FK_TitleStaff" />
+        <EntityTypeShape EntityType="UPOSModel.vwRoomAvailability" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="UPOSModel.ModuleStatusSet" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="UPOSModel.FK_Modules_ModuleStatusSet" />
+        <AssociationConnector Association="UPOSModel.FK_Modules_Departments" />
+        <EntityTypeShape EntityType="UPOSModel.Activity" Width="1.5" PointX="8.25" PointY="15.25" />
+        <AssociationConnector Association="UPOSModel.FK_ActivityTypeActivity" />
+        <AssociationConnector Association="UPOSModel.FK_EvalTypeActivity" />
+        <AssociationConnector Association="UPOSModel.FK_ModuleActivity" />
+        <AssociationConnector Association="UPOSModel.FK_RoomTypeActivity" />
+        <AssociationConnector Association="UPOSModel.FK_StaffActivity" />
+        <AssociationConnector Association="UPOSModel.FK_Modules_AcademicYears1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
